@@ -1,9 +1,7 @@
 import { Sequelize } from "sequelize";
 import { userInit } from "./user_model";
 
-const sequelize = new Sequelize(
-  "mysql://root:Motunrayo21@@localhost:3306/firstdatabase"
-);
+const sequelize = new Sequelize(process.env.SQL_URI ?? "");
 
 const dbSync = async () => {
   try {
