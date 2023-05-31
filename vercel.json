@@ -1,4 +1,13 @@
 {
+  "installCommand": "npm install",
+  "outputDirectory": "dist",
+  "public": true,
+  "builds": [
+    {
+      "src": "/src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
