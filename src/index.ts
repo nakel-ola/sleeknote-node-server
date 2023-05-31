@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-import db from "./db/models";
 // routes
 import auth from "./routes/auth_route";
 
