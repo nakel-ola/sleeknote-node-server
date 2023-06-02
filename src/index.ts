@@ -1,13 +1,13 @@
 require("dotenv").config();
 import app from "./app";
-import initializeDB from "./db";
+// import initializeDB from "./db";
 
 const PORT = process.env.PORT || 4000;
 const start = async () => {
   try {
-    console.log("Connecting to database...");
+    // console.log("Connecting to database...");
 
-    await initializeDB.initialize();
+    // await initializeDB.initialize();
 
     app.listen(PORT, () =>
       console.log("listening on port http://localhost:" + PORT)
