@@ -1,28 +1,22 @@
-import cors from "cors";
-import dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
+import app from "./app";
+import initializeDB from "./db";
 
-import express from "express";
-// routes
-import auth from "./routes/auth_route";
-
-const app = express();
 const PORT = process.env.PORT || 4000;
-
-app.use(express.json());
-app.use(express.static('public'))
-app.use(cors());
-
 const main = async () => {
-  //   await db();
+  console.log("Connecting to database...");
 
-  app.use("/auth", auth);
-
-  app.get("/", (req, res) => {
-    res.json({ message: "Welcome to Sleeknote" });
-  });
-
-  app.listen(PORT, () => console.log("listening on port " + PORT));
+  initializeDB
+    .initialize()
+    .then(() => {
+      console.log("Connected to database...");
+      app.listen(PORT, () =>
+        console.log("listening on port http://localhost:" + PORT)
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 main();
