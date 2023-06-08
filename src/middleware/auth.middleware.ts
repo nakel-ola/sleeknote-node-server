@@ -10,11 +10,11 @@ const authMiddleware = async (
 ) => {
   try {
     if (!req.headers.authorization) throw new Error("Permission denied");
-    
+
     const token = getTokenString(req.headers.authorization);
-    
+
     if (!token) throw new Error("Permission denied");
-    
+
     const decodedToken = verify(token, process.env.JWT_SECRET!) as JwtPayload;
 
     if (!decodedToken) throw new Error("Permission denied");
@@ -26,6 +26,7 @@ const authMiddleware = async (
 
     next();
   } catch (error: any) {
+    res.status(400).json({ error: error.message });
     next(error);
   }
 };
