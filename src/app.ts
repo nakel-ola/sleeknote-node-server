@@ -6,7 +6,7 @@ import api from "./api";
 const app = express();
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(path.resolve(__dirname, "../public"));
 app.use(cors());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
