@@ -109,7 +109,6 @@ Result example:
     id : "...",
     name: "...",
     email: "...",
-    password: "...",
     createdAt: "...",
     updatedAt: "...",
   }
