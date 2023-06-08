@@ -1,0 +1,23 @@
+div.left-menu
+    div.content-logo
+        div.logo
+            img(src="/images/_42a3f9a1-b53c-476d-a030-54584abd841b.png", alt="", size="40px", style="width:40px; height:40px;")
+            span API Documentation
+        button.burger-menu-icon#button-menu-mobile
+            svg(width="34" height="34" viewBox="0 0 100 100") 
+                path.line.line1(d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058")
+                path.line.line2(d="M 20,50 H 80") 
+                path.line.line3(d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942")
+
+    div.mobile-menu-closer
+
+    div.content-menu
+        ul.content-infos
+            li(class="scroll-to-link active" data-target="content-get-started")
+                a Introduction
+
+            p.pheader Routes
+
+            each val in routes
+                li(class="scroll-to-link" data-target=val.target)
+                    a #{ val.name }

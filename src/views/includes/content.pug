@@ -1,0 +1,57 @@
+div(class="overflow-hidden content-section" id="content-register" style="flex align-items: center;")
+    h2 #{name}
+        if method === "POST"
+            span(class="name-method code-method-post") #{method}
+        else if method === "GET"
+            span(class="name-method code-method-get") #{method}
+        else if method === "DELETE"
+            span(class="name-method code-method-delete") #{method}
+        else if method === "PUT"
+            span(class="name-method code-method-put") #{method}
+        else if method === "PATCH"
+            span(class="name-method code-method-patch") #{method}
+    p #{label}
+    pre 
+        if method === "POST"
+            span(class="code-method code-method-post") #{method}
+        else if method === "GET"
+            span(class="code-method code-method-get") #{method}
+        else if method === "DELETE"
+            span(class="code-method code-method-delete") #{method}
+        else if method === "PUT"
+            span(class="code-method code-method-put") #{method}
+        else if method === "PATCH"
+            span(class="code-method code-method-patch") #{method}
+        code(class="language-javascript") #{ url }
+    p #{description2}
+        br
+        code(class="higlighted break-word") #{ url }
+    br
+    pre(style="margin-bottom: 60px;")
+        code(class="language-javascript") #{ request }
+    pre
+        code(class="language-json") #{ response }
+    h4 QUERY PARAMETERS
+    table.central-overflow-x
+        thead
+            tr
+                th Field
+                th Type
+                th Description
+        tbody
+            tr
+                td Name 
+                td String 
+                td (Required) Value must not be less then 5 
+            tr
+                td Username 
+                td String 
+                td (Required) Value must not be less then 5 
+            tr
+                td Email 
+                td String 
+                td (Required) Value must be a valid email address
+            tr
+                td Password 
+                td String 
+                td (Required) Value must not be less then 8

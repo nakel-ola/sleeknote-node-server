@@ -3,21 +3,16 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  Generated,
   PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-
-enum GenderEnum {
-  MALE = "male",
-  FEMALE = "female",
-}
 
 @Entity("users")
 export class User extends BaseEntity {
   @PrimaryColumn()
-  @Generated("uuid")
-  uid!: string;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
   @Column()
   name!: string;
@@ -25,14 +20,14 @@ export class User extends BaseEntity {
   @Column({ unique: true })
   email!: string;
 
-  @Column({ unique: true })
-  username!: string;
+  @Column()
+  password!: string;
 
   @Column()
-  photoUrl!: string;
+  rememberToken!: string;
 
-  @Column({ type: "enum", enum: GenderEnum })
-  gender!: GenderEnum;
+  @CreateDateColumn()
+  emailVerifiedAt!: Date;
 
   @CreateDateColumn()
   createdAt!: Date;

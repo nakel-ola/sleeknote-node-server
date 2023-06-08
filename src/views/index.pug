@@ -1,0 +1,39 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        title API - Documentation
+        meta(name="description", content="")
+        meta(name="author", content="olamilekan")
+
+        meta(http-equiv="cleartype" content="on" )
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        include ./includes/hightlightjs-dark
+        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet")
+        include ./includes/style
+            
+        
+    body
+        include ./includes/sidebar
+
+        div.content-page
+            div.content-code
+            div.content
+                div(class="overflow-hidden content-section" id="content-get-started")
+                    h1 Introduction
+                    pre
+                        code(class="language-bash") API Endpoint #{ baseUrl }
+                    p The API provides programmatic access to read Ecommerce data. Register, login, get authenticated user, etc.
+
+
+                each val in routes
+                    - const { name, url, method,description,label,query,response, request } = val;
+                    include ./includes/content
+                
+        script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js")
+        script hljs.highlightAll()
+        script(src="js/script.js") 
