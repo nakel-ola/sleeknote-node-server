@@ -1,4 +1,4 @@
-div(class="overflow-hidden content-section" id="content-register" style="flex align-items: center;")
+div(class="overflow-hidden content-section" id=target style="flex align-items: center;")
     h2 #{name}
         if method === "POST"
             span(class="name-method code-method-post") #{method}
@@ -23,7 +23,7 @@ div(class="overflow-hidden content-section" id="content-register" style="flex al
         else if method === "PATCH"
             span(class="code-method code-method-patch") #{method}
         code(class="language-javascript") #{ url }
-    p #{description2}
+    p #{description}
         br
         code(class="higlighted break-word") #{ url }
     br

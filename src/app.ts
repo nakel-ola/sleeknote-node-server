@@ -6,7 +6,7 @@ import api from "./api";
 const app = express();
 
 app.use(express.json());
-app.use(path.resolve(__dirname, "../public"));
+app.use(express.static(path.resolve(__dirname, "../public")));
 app.use(cors());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -96,10 +96,36 @@ await fetch("https://sleeknote-node-server.vercel.app/api/auth/login", {
 })
         `
       },
+      {
+        name: "Get user",
+        target: "content-get-user",
+        method: "GET",
+        url: "https://sleeknote-node-server.vercel.app/api/user/",
+        label: "Use this endpoint to get authenticated user",
+        description: "To get user you need to make a Get call to the following url:",
+        response: `
+Result example:
+  {
+    id : "...",
+    name: "...",
+    email: "...",
+    password: "...",
+    createdAt: "...",
+    updatedAt: "...",
+  }
+        `,
+        request: `
+await fetch("https://sleeknote-node-server.vercel.app/api/user/", {
+  method: "GET",
+  headers: {
+    "authorization": "Bearer access_token here...."
+  }
+})
+        `
+      }
     ],
   });
 });
 
 app.use("/api", api);
-
 export default app;
